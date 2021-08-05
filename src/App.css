@@ -1,3 +1,27 @@
+/* CSS - RESET */
+
+body, p, h1, ul, li, blockquote {
+  padding: 0px;
+  margin: 0px;
+}
+
+body {
+  font-family: "Vollkorn", Georgia, serif; /* Fonte 2 de 2 - Chamamos aqui a fonte, se o sistema do cara não tiver Volkorn, carregaremos georgia, se não tiver também, usaremos qualquer serifada que ele tiver instalada no sistema dele. */
+}
+
+li {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+}
+
+/* CSS - PROJETO */
+
+/* Fonte 1 de 2 - No html a gente copia o <link> do google api, e cola no head do html, no react a gente coloca no css, e importa depois este css no App.js, isso é importante para o build e pro cache. */
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,700;1,400&display=swap');
+
 body {
   background-color: gainsboro;
 }
@@ -5,3 +29,49 @@ body {
 img {
   max-width: 100px;
 }
+
+/* GRID GERAL */
+
+.estrutura {
+  /* Implementar GRID - 1 de 4 - Ativei o CSS GRID */
+  display: grid; 
+
+  /* Implementar GRID - 2 de 4 - Divisão inicial: Dividi o site em pedaços grandes, no começo, coloquei 1fr em cada coluna, até eu decidir quais seriam as proporções ideais. */
+  /* 1ª coluna: As imagens svg do sidenav ficam feias se ficarem pequenas demais. Por isso, a primeira coluna terá no mínimo 160x e no máximo 1fr.*/
+  /* 2ª coluna: Quero que meu conteúdo tenha 3x mais espaço pra ele do que a coluna da sidenav */
+  /* 3ª coluna: Quero que os anúncios tenham um tamanho fixo, porque o google adsense dá imagens de 300px pra gente ganhar dinheiro mostrando anúncios no nosso site. */
+  grid-template-columns: minmax(160px, 1fr) 3fr 300px; 
+
+  /* Implementar GRID - 3 de 4 - Mapeei onde cada elemento vai estar. Usei o mesmo nome da className por boa prática */
+  /* Area 1: Quero que o header que tem o logo e o menu, ocupe a largura total do site. */
+  /* Area 2: Quero que minha sidenav com os animais em svg aparecem na lateral esquerda, o conteúdo no centro, e os anúncios na direita. */
+  /* Area 3: Quero que meu footer ocupe a largura total do site. */
+  grid-template-areas: 
+    "header header header"
+    "sidenav content anuncios"
+    "footer footer footer"
+  ;
+}
+
+/* Implementar GRID - 4 de 4 - O elemento que tiver o className = header, será posicionado no espaço nomeado como "header" no grid-template-areas */
+/* Repeti o mesmo processo pra todas as outras classes, sidenav posicionado em sidenav, content posicionado em content. Nome da classe tem que ser igual ao do espaço reservado, por boa prática */
+.header {
+  grid-area: header;
+}
+
+.sidenav {
+  grid-area: sidenav;
+}
+
+.content {
+  grid-area: content;
+}
+
+.anuncios {
+  grid-area: anuncios;
+}
+
+.footer {
+  grid-area: footer;
+}
+

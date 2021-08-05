@@ -1,0 +1,14 @@
+{
+  "Etapa 1, até Etapa 3": [
+    {
+      "Como alterar a tag <head> em React.js - React Helmet": "https://www.npmjs.com/package/react-helmet",
+      "Como usar o <Link ao invés de <a> - BrowserRouter": "https://reactrouter.com/web/api/BrowserRouter",
+      "Como inserir imagem no projeto React.js": "https://pt.stackoverflow.com/questions/309953/como-inserir-imagem-usando-react-js",
+      "Como usar o atributo alt do html em um projeto React.js": "https://stackoverflow.com/questions/44632354/how-do-i-specify-an-empty-alt-attribute-in-react-jsx",
+      "Wireframe do Projeto Wildbeast - Que está sendo transformado em React.js": "https://origamid.com/projetos/wildbeast/",
+      "Como importar Google fonts no projeto React.js": "https://stackoverflow.com/questions/40769551/how-to-use-google-fonts-in-react-js",
+      "Fonte Vollkorn, utilizada no projeto": "https://fonts.google.com/specimen/Vollkorn",   
+      "Como documentar links usando JSON": "https://www.devmedia.com.br/o-que-e-json/23166"
+    }
+  ]
+}
