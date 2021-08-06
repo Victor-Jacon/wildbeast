@@ -154,6 +154,36 @@ body {
 
 /* CONTENT */
 
+.content {
+  max-width: 900px; /* Em monitores grandes, se a gente não colocar um max-width como este, todo o texto do site vai ficar em uma só linha, e aí fica ruim pra ler pq fica mt largo o parágrafo.*/
+  margin: 0 auto; /* Do mesmo jeito acima, quando cresce demais o container, ele vai começar a criar um espaço em branco no lado direito do conteúdo, pra corrigir isso usamos margin 0 auto, desta forma o conteúdo ficará alinhado.*/
+  padding: 30px; /* Colocamos o mesmo padding de 30px que os outros elementos possuem, desta forma o conteúdo fica alinhado + o conteudo desgruda das laterais do site, dando uma aparencia mais harmonica*/ 
+  
+  /* Crio o grid do conteúdo, de forma similar ao que fiz no header. */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 30px;
+}
+
+.col-wide {
+  /* Um erro comum seria contar quantas linhas o site tem atualmente, e colocar, por exemplo grid-column: 1 / 5, isso é codificar de forma estática, se a nossa finalidade é que se expanda até o final da linha, usamos o -1, assim mesmo que a gente adicione novas colunas, ele sempre vai ir até o final. Desta forma, a gente não precisa ficar alterando aqui o código toda vez que alterarmos a estrutura do grid, como por exemplo, quando alteramos a quantidade de colunas.*/
+  /* O conteúdo que tiver a classe col-wide, vai começar na linha 1, e vai até a última linha. */
+  grid-column: 1 / -1; 
+}
+
+.imagem-1 {
+  /* Um erro comum seria definir de forma estática onde inicia, e onde termina a linha, tipo da linha 3 até linha 5. Caso fizéssemos de forma estática, caso no futuro a gente mudasse alguma coisa no site, ia quebrar o layout.*/
+  /* O grid row span 2, diz que, o elemento que tiver a classe imagem-1, vai expandir para 2 linhas, isso torna o grid dinâmico. */
+  grid-row: span 2; 
+
+  /* Alinhamos a imagem 1 com a imagem 2, na base. Sem esta linha, a imagem 1 ficaria mais alta que a imagem 2.*/
+  align-self: end;
+}
+
+.item-2 {
+  align-self: end;
+}
+
 /* ANUNCIOS */
 
 .anuncios {
