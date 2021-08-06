@@ -77,7 +77,7 @@ function App() {
           
             <img className="imagem-1" src={wolf1} alt="Wolf 1" />
 
-            <p>É um sobrevivente da Era do Gelo, originário do Pleistoceno Superior, cerca de 300 mil anos atrás.[2] O sequenciamento de DNA e estudos.</p>
+            <p className="destaque">É um sobrevivente da Era do Gelo, originário do Pleistoceno Superior, cerca de 300 mil anos atrás.[2] O sequenciamento de DNA e estudos.</p>
          
             <img className="imagem-2" src={wolf2} alt="Wolf 2" />
 
