@@ -23,7 +23,7 @@ a {
 @import url('https://fonts.googleapis.com/css2?family=Vollkorn:ital,wght@0,400;0,700;1,400&display=swap');
 
 body {
-  background-color: gainsboro;
+  background-color: white;
 }
 
 .img {
@@ -182,6 +182,91 @@ body {
 
 .item-2 {
   align-self: end;
+}
+
+/* ESTILOS CONTENT */
+
+p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  letter-spacing: -0.005em; /* Diminui um pouco a distancia entre as letras, tornando o texto mais "colado" em algumas fontes isso dá um efeito legal, por isso colocamos aqui. */
+  color: rgba(0,0,0,.7) /* Criamos um tom de cinza pra facilitar a leitura */
+}
+
+/* Queremos estilizar o P que vem depois de outro p, pra evitar a estilização do primeiro elemento, igual fizemos com o li + li em outro momento neste projeto. */
+.informacoes p + p {
+  margin-top: 30px;
+}
+
+/* TÍTULO */
+.titulo {
+  color: #B07DFB;
+}
+
+.titulo h1 {
+  font-size: 3.75em;
+  line-height: 1; /* Resetamos o padrão do line height para a linha de cima e a linha de baixo ficarem mais coladas*/
+  font-weight: 700; /* Colocamos o 700 porque é o valor que importamos da tipografia do google fonts */
+}
+
+.titulo span {
+  font-size: 0.875em;
+  font-style: italic;
+}
+
+/* Características */
+
+.caracteristicas {
+  display: flex; /* Coloca um do lado do outro, igual fizemos do menu/header */
+  
+  /* Sem esta linha, quando a tela diminui de tamanho, a div de características passa a ocupar 2 linhas de altura, porque ela está dentro do mesmo container do texto "Lobo Cinza", basta ver o html ou o projeto final.
+  /* Colocando o flex-start, ela não vai expandir para baixo mais. O align e o justify não só alinham, eles também alteram como o elemento se expande quando tem espaço sobrando no container. */ 
+  align-items: flex-start; 
+}
+
+/* A seta > significa que eu só quero estilizar as divs FILHAS DIRETAS do elemento que possui a classe características. Desta forma, se eu estiver uma estrutura com 2 divs filhas, e cada filha com mais 2 divs, essas divs FILHAS DAS FILHAS, não seriam afetadas por esta estilização. */
+.caracteristicas > div {
+  width: 80px; 
+  text-align: center;
+  background: linear-gradient(135deg, #8844ee, #B07DFB);
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px rgba(44,44,44,0.15);
+
+  /* BUG COR ROXA - 1 de 2 */
+  /* Os 2 elementos que eu coloquei pra representar o peso e a idade, ficam com a cor roxa saindo pra fora, por trás da div, se der um zoom no canto direito inferior vc consegue ver. */
+  /* Pra corrigir, vamos colocar estes 2 spans 2px pra baixo. */
+  position: relative;
+}
+
+/* A seta > significa que eu só quero estilizar as divs FILHAS DIRETAS do elemento que possuir a classe características */
+/* Além disso, quero estilizar apenas a primeira div filha, e não todas as filhas, ou seja, são duas condições aqui. */
+.caracteristicas > div:first-child {
+  margin-right: 30px;
+}
+
+.caracteristicas span {
+  display: block; /* O comportamento padrão do elemento span, é ser inline. A gente coloca display block, desta maneira, fica 1 coluna em cima da outra.*/
+  color: #B07DFB;
+}
+
+/* A classe numero e rotulos, ambos são elementos <span> dentro da classe caracteristicas, então a gente coloca a cor apenas uma vez, e o display block tb, conforme fizemos acima.*/
+
+.numero {
+  font-size: 3em;
+  line-height: 1;
+  margin: 10px auto;
+}
+
+.rotulo {
+  background: white;
+  border-radius: 0 0 5px 5px; /* TOPO ESQUERDO + TOPO DIREITO: É reto, sem arredondamento, e base direita e esquerda ficam redondos. */
+  padding: 5px 0; /* Aumento a grossura do meu span para cima e para baixo em 5px */
+
+  /* BUG COR ROXA - 2 de 2 */
+  /* Criamos uma referência para podermos usar o top, bottom e etc da forma correta, colocando relative aqui no nosso span rotulo, e relative na nossa div filha DIRETA do características. */
+  /* Colocamos 2px pra baixo o nosso span, pra tampar a cor roxa da div características que estava "vazando" */
+  position: relative;
+  top: 2px;
 }
 
 /* ANUNCIOS */
