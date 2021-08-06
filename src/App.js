@@ -31,8 +31,8 @@ function App() {
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" /> {/* Faz o responsivo funcionar, só copiar e colar. No react, a tag meta é <meta /> */}
       </Helmet>
       <div className="estrutura">
-        <header className="header">
-          <Link to="/"> { /* Alternativa ao <a>, evita que a pagina fique toda branca, e depois carregue. */}
+        <header className="header">  {/* Implementar grid do header - 1 de 2 - Temos o elementos link, e o nav, são 2 elementos, então no nosso grid template columns, precisamos colocar 2 tamanhos*/ }
+          <Link to="/" className="logo"> { /* Alternativa ao <a>, evita que a pagina fique toda branca, e depois carregue. */}
             <img src={logoWildbeast} alt="Wildbeast"/> {/* As imagens são importadas como libraries, e depois, a gente chama elas pelo nome da variável que a gente deu, a prop alt é igual no html e react */}
           </Link>
 

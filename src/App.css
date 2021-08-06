@@ -26,11 +26,11 @@ body {
   background-color: gainsboro;
 }
 
-img {
-  max-width: 100px;
+.img {
+  max-width: 100%;
 }
 
-/* GRID GERAL */
+/* Criação da Estrutura do Grid + Estilização Básica */
 
 .estrutura {
   /* Implementar GRID - 1 de 4 - Ativei o CSS GRID */
@@ -57,6 +57,15 @@ img {
 /* Repeti o mesmo processo pra todas as outras classes, sidenav posicionado em sidenav, content posicionado em content. Nome da classe tem que ser igual ao do espaço reservado, por boa prática */
 .header {
   grid-area: header;
+  background: linear-gradient(135deg, #8844ee, #B07DFB);
+  padding: 30px;
+
+  /* Implementar grid do header - 2 de 2 */
+  /* Para atingirmos o resultado desejado, precisamos de 2 estruturas dentro da div com className=header */
+  /* Eu crio um grid separado para o header do site, e alinho eles na vertical ao centro. */
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
 }
 
 .sidenav {
@@ -75,3 +84,39 @@ img {
   grid-area: footer;
 }
 
+/* Estilização dos elementos */
+.logo {
+  max-width: 200px; /* */
+}
+
+/* */
+.header nav ul {
+  display: flex; /* Menu - 1 de 2 - Coloca os itens na horizontal  */
+  flex-wrap: wrap; /* Menu - 2 de 2 - Habilita a quebra de linha  */
+}
+
+.header nav a {
+  display: block;
+
+  /* Menu Estilo 1 de 3 - Cor branca na fonte + 18px de tamanho (1.125em)+ Crio uma area de contato maior pra o usuário conseguir apertar o botão*/
+  padding: 10px; 
+  color: white; 
+  font-size: 1.125em;
+
+  /* Menu Estilo 2 de 3 - Bordinha arredonda + Camada mais escura pra diferenciar o menu + transição de hover, quando o usuário colocar E tirar o mouse, em ambos momentos vai ter uma transição, não vai ser instantâneo*/
+  border-radius: 5px;
+  background: rgba(0,0,0,.1); 
+  transition: 0.1s;
+}
+
+.header nav a:hover {
+  background: rgba(0,0,0,.5);
+  /* Um erro comum seria colocar o transition 0.1s aqui, desta maneira o item teria uma transição na hora de passar o mouse por cima, mas na hora de tirar, ele sairia instantâneamente, o que prejudica a experiência.*/
+}
+
+/* Menu Estilo 3 de 3 - Um erro comum é colocar margin left ou margin right pra colocar um espaço entre os links do menu. Mas isso fere o responsivo. O margin left só fica legal no desktop, e o margin right, só fica legal no mobile, pq ambos não consideram a quebra de tela.*/
+/* Ao invés de marcarmos header li, a gente coloca li+li, que é o que chamamos de adjacente. */
+/* li+li significa: cada li que vier depois de um li, quero que faça a seguinte estilização... */
+.header li + li {
+  margin-left: 30px; /* No primeiro ele não vai adicionar, pq o primeiro <li> não vem depois de outro li. */
+}
