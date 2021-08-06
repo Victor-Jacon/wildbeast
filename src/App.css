@@ -84,12 +84,11 @@ body {
   grid-area: footer;
 }
 
-/* Estilização dos elementos */
+/* ESTILIZAÇÃO - HEADER*/
 .logo {
   max-width: 200px; /* */
 }
 
-/* */
 .header nav ul {
   display: flex; /* Menu - 1 de 2 - Coloca os itens na horizontal  */
   flex-wrap: wrap; /* Menu - 2 de 2 - Habilita a quebra de linha  */
@@ -119,4 +118,33 @@ body {
 /* li+li significa: cada li que vier depois de um li, quero que faça a seguinte estilização... */
 .header li + li {
   margin-left: 30px; /* No primeiro ele não vai adicionar, pq o primeiro <li> não vem depois de outro li. */
+}
+
+/* SIDENAV */
+
+.sidenav {
+  background: #fafbfc;
+  padding: 30px; /* Sidenav 1 de 5 - Deixo um espaço maior para meu container de navegação, tirando este espaço dos meus <li>, pra chegar num design mais harmônico. Sem colocar esse espaçamento, o quadradinho branco ficaria colado no conteúdo, e ficaria feio.*/
+}
+
+.sidenav li a {
+  /* Sidenav 2 de 5 - Os icones svg vão ter no mínimo 60px, e no máximo 100px + o comportamento padrão aqui é inline, então a gente especifica que queremos display block pra ficar um em cima do outro*/
+  display: block;
+  min-width: 60px;
+  max-width: 100px;
+
+  /* Sidenav 3 de 5 - 0px de distancia do topo, automático nas laterais pra ficar centralizado, e 30px embaixo + colocamos o link pra ficar branco, e o fundinho continua cinza. */
+  margin: 0 auto 30px auto;
+  background: white;
+
+  /* Sidenav 4 de 5 - Com padding 20px eu Diminuo o tamanho dos icones svg, pra dar mais espaço para o meu <li> + arredondo as bordas + coloco a sombra pra parecer que tem uma profundidade no site. + coloco uma transição pra quando eu der hover no elemento ele entrar e sair de leve ao invés de ser algo abrupto */
+  padding: 20px; 
+  border-radius: 5px;
+  box-shadow: 5px 5px 15px 0px rgba(44,44,44,0.15);
+  transition: .1s ease-out;
+}
+
+.sidenav li a:hover {
+  /* Sidenav 5 de 5 - Coloco a cor roxa para meu hover + */
+  background: #B07DFB;
 }
