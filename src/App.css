@@ -27,7 +27,10 @@ body {
 }
 
 .img {
+  /* Anuncios 2 de 3 - Ativo o display block pra todas as imagens do site, pra remover uma margem de 4px padrão que todas as imagens tem. + torno as imagens responsivas com max-width 100%, e coloco uma borda padrão de 5px pra combinar com o restante dos locais onde também tenho border radius 5px.*/
+  display: block;
   max-width: 100%;
+  border-radius: 5px;
 }
 
 /* Criação da Estrutura do Grid + Estilização Básica */
@@ -147,4 +150,33 @@ body {
 .sidenav li a:hover {
   /* Sidenav 5 de 5 - Coloco a cor roxa para meu hover + */
   background: #B07DFB;
+}
+
+/* CONTENT */
+
+/* ANUNCIOS */
+
+.anuncios {
+  /* Anuncios 1 de 3 - Coloco uma cor de fundo pra eu identificar o que estou editando + ativo display grid + faço as imagens se alinharem ao início do container, pra elas "subirem", se eu tiro o align start, fica uma imagem, um espaço em branco, e outra imagem. */
+  background: #fafbfc;
+  display: grid;
+  align-content: start; 
+
+  /* Anuncios 3 de 3 - Adiciono um espaçamento da imagem para o container anuncios + coloco uma distancia de 30px entre uma imagem e a outra +  */
+  padding: 30px;
+  grid-gap: 30px; 
+}
+
+/* FOOTER */
+
+.footer {
+  /* Footer 1 de 2 - Coloco a cor roxa gradiente */
+  background: linear-gradient(135deg, #8844ee, #B07DFB);
+}
+
+.footer p {
+  /* Footer 2 de 2 - Estilizo a fonte com cor branca + alinho ao centro + coloco 30px de grossura no elemento */
+  color: white;
+  text-align: center;
+  padding: 30px;
 }
