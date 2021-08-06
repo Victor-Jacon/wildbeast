@@ -56,6 +56,59 @@ body {
   ;
 }
 
+/* Responsivo - 1 de 10 */
+/* Aqui nesta etapa a gente tem 2 formas de organizar o grid pra ficar responsivo. 
+
+Como a gente definiu que a terceira coluna tem 300px, mesmo que a gente coloque "header header"
+no grid template areas, ele vai continuar com uma terceira coluna em branco.
+
+Nós temos 2 formas de resolver isso. A gente pode passar o grid template columns, e tirar a ultima coluna de 300px, assim;
+grid-template-columns: minmax(160px, 1fr) 3fr; 
+
+E manter o grid-template-areas assim:
+    grid-template-areas: 
+    "header header"
+    "sidenav content"
+    "sidenav anuncios"
+    "footer footer"
+
+Ou, a gente pode duplicar cada segundo elemento da linha na terceira coluna em branco de 300px, aí ela some, e ele ocupa o espaço dela.
+Dá na mesma. Como referencia, olhe o grid-template-areas acima, da solucao 1, e veja que copiar o 2 elemento para a 3 coluna de cada linha.
+    grid-template-areas: 
+    "header header header"
+    "sidenav content content"
+    "sidenav anuncios anuncios"
+    "footer footer footer"
+*/
+
+/* Quando atingir uma largura de 1200px, nosso site vai mudar a estrutura normal, e vai ter essa nova estrutura abaixo*/
+@media (max-width: 1200px) {
+  .estrutura {
+    grid-template-areas: 
+    "header header header"
+    "sidenav content content"
+    "sidenav anuncios anuncios"
+    "footer footer footer"
+    ;
+  }
+}
+
+/* Responsivo - 2 de 10 */
+/* Para dar um exemplo da solução 1, faremos aqui daquela maneira, resetando o grid-template columns.*/ 
+/* No header e no content nós temos grid dentro de grid, então é necessário criar um breakpoint pra cada um deles também. */
+@media (max-width: 760px) {
+  .estrutura {
+    grid-template-columns: 100%;
+    grid-template-areas: 
+    "header"
+    "sidenav"
+    "content"
+    "anuncios"
+    "footer"
+    ;
+  }
+}
+
 /* Implementar GRID - 4 de 4 - O elemento que tiver o className = header, será posicionado no espaço nomeado como "header" no grid-template-areas */
 /* Repeti o mesmo processo pra todas as outras classes, sidenav posicionado em sidenav, content posicionado em content. Nome da classe tem que ser igual ao do espaço reservado, por boa prática */
 .header {
@@ -69,6 +122,26 @@ body {
   display: grid;
   grid-template-columns: 1fr auto;
   align-items: center;
+}
+
+  /* Responsivo - 3 de 10 */
+  /* No header temos grid dentro de grid, então vamos agora criar o breakpoint dele. */
+@media (max-width: 760px) {
+  .header {
+    grid-template-columns: auto;
+  }
+  .logo {
+    margin-bottom: 20px; /* Dar um espaçamento do logo para o menu - no mobile vai ficar um embaixo do outro. */
+  }
+  /* Responsivo - 4 de 10 */
+  /* O componente Link do react precisa ser estilizado com classe, não dá pra chamar ele aqui igual uma tag html direto */
+  /* Colocamos uma margin-left de 10px, pra reduzir o espaçamento no mobile */
+  .header nav .link-menu {
+    font-size: 1em;
+  }
+  .header nav li + li {
+    margin-left: 10px;
+  }
 }
 
 .sidenav {
@@ -89,7 +162,7 @@ body {
 
 /* ESTILIZAÇÃO - HEADER*/
 .logo {
-  max-width: 200px; /* */
+  max-width: 200px;
 }
 
 .header nav ul {
@@ -150,6 +223,56 @@ body {
 .sidenav li a:hover {
   /* Sidenav 5 de 5 - Coloco a cor roxa para meu hover + */
   background: #B07DFB;
+}
+
+/* Setinha Animada - 3 de 3 */
+@keyframes seta {
+  from {
+    right: 30px;
+  }
+  to {
+    right: 20px;
+  }
+}
+
+@media (max-width: 760px) {
+  .sidenav {
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;  /* Faz funcionar no iphone. Isso aqui habilita que o nosso menu de icones svg crie um scroll horizontal, tipo aquele de categorias do ifood. SEm ele o scroll fica muito bugado. */
+    -ms-overflow-style: -ms-autohiding-scrollbar; /* Esconde a barra de rolagem horizontal se o site for aberto em alguma tecnologia da microsoft, como explorer e edge. */
+  
+    /* Setinha Animada - 2 de 3 */
+    /* Criamos a referência necessária para o position absolute abaixo funcionar. */
+    position: relative;
+  }
+
+  .sidenav::after {
+    /* Setinha Animada - 1 de 3 */
+    /* Quando o usuário está no celular, pode acontecer de não mostrar 2 icones e meio, indicando que existe a barra de rolagem. Pra ele saber que dá pra rolar, a gente vai colocar uma setinha se mexendo apontando pra direita. */
+    /* Pra fazer isso a gente coloca a setinha como caracter especial, posicionamos ela absolute, em relação ao container de svgs, por isso colocamos relative no código acima. */
+    content: '→';
+    position: absolute;
+    top: 5px;
+    right: 30px;
+    color: rgba(0,0,0,.3);
+
+    /* Setinha Animada - 3 de 3 */
+    /* Aplicamos a animação - nome, velocidade, modo de animação, quanto tempo vai demorar pra ela começar, quantas vezes vai repetir, e qual será o sentido da animação, no nosso caso, queremos que ele vá do 30 pro 20, e depois do 20 para o 30, alternando. */
+    animation: seta .5s ease-in 0s infinite alternate;
+  }
+
+  .sidenav ul {
+    display: flex;
+  }
+  .sidenav ul li {
+    flex: 1 0 60px; /* O 60px significa que não queremos que ele diminua mais que 60 */
+  }
+  .sidenav {
+    padding: 0 30px;
+  }
+  .sidenav li a {
+    margin: 30px 30px 30px 0px;
+  }
 }
 
 /* CONTENT */

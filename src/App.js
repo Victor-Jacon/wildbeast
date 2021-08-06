@@ -38,7 +38,7 @@ function App() {
 
           <nav>
             <ul>
-              <li><Link to="#">sobre</Link></li>
+              <li><Link className="link-menu"to="#">sobre</Link></li>
               <li><Link to="#">animais</Link></li>
               <li><Link to="#">contato</Link></li>
             </ul>
