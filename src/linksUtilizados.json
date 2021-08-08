@@ -15,7 +15,9 @@
     {
       "Como fazer o inspecionar elemento ficar na horizontal ao invés de ficar na vertical": "https://stackoverflow.com/questions/27772802/how-to-drag-re-position-inspect-element-tool-in-google-chrome",
       "Como fazer a barra de rolagem horizontal parar de quebrar meu responsivo": "Descobri sozinho. Colocar width: 100% nas imagens do site, pois se a imagem for maior que o container css grid, ele vai quebrar seu layout. ",
-      "Como substituir uma div pelo react fragment": "Escreve <Fragmen e aperta tab para dar auto complete, e ele vai dar auto import lá em cima, depois basta substituir sua div pelo react fragment normal, assim: <Fragment />"
+      "Como substituir uma div pelo react fragment": "Escreve <Fragmen e aperta tab para dar auto complete, e ele vai dar auto import lá em cima, depois basta substituir sua div pelo react fragment normal, assim: <Fragment />",
+      "Onde fica o head, o meta e o body que temos no html em nosso projeto react": "Fica no arquivo index.html na pasta public",
+      "Onde eu altero o icone que fico no título da pagina, o favicon":"No arquivo index.html, que fica dentro da pasta public, precisa ter o tamanho de icone certinho, usando o site: https://icoconvert.com/ vc consegue pegar um arquivo jpg e transformar em favicon pro seu projeto. É bom alterar no manifest.json também, colocando o nome e os tamanhos do favicon"
     }
   ]
 }
