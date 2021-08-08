@@ -3,6 +3,7 @@
 body, p, h1, ul, li, blockquote {
   padding: 0px;
   margin: 0px;
+  box-sizing: border-box;
 }
 
 body {
@@ -26,10 +27,10 @@ body {
   background-color: white;
 }
 
-.img {
+img {
   /* Anuncios 2 de 3 - Ativo o display block pra todas as imagens do site, pra remover uma margem de 4px padrão que todas as imagens tem. + torno as imagens responsivas com max-width 100%, e coloco uma borda padrão de 5px pra combinar com o restante dos locais onde também tenho border radius 5px.*/
   display: block;
-  max-width: 100%;
+  width: 100%;
   border-radius: 5px;
 }
 
@@ -43,7 +44,7 @@ body {
   /* 1ª coluna: As imagens svg do sidenav ficam feias se ficarem pequenas demais. Por isso, a primeira coluna terá no mínimo 160x e no máximo 1fr.*/
   /* 2ª coluna: Quero que meu conteúdo tenha 3x mais espaço pra ele do que a coluna da sidenav */
   /* 3ª coluna: Quero que os anúncios tenham um tamanho fixo, porque o google adsense dá imagens de 300px pra gente ganhar dinheiro mostrando anúncios no nosso site. */
-  grid-template-columns: minmax(160px, 1fr) 3fr 300px; 
+  grid-template-columns: minmax(160px, 1fr) 3fr minmax(100px, 1fr); 
 
   /* Implementar GRID - 3 de 4 - Mapeei onde cada elemento vai estar. Usei o mesmo nome da className por boa prática */
   /* Area 1: Quero que o header que tem o logo e o menu, ocupe a largura total do site. */
@@ -285,7 +286,15 @@ Dá na mesma. Como referencia, olhe o grid-template-areas acima, da solucao 1, e
   /* Crio o grid do conteúdo, de forma similar ao que fiz no header. */
   display: grid;
   grid-template-columns: 1fr 1fr;
-  grid-gap: 30px;
+  gap: 30px;
+}
+
+/* Responsivo - 5 de 10 */
+/* Coloco um breakpoint diferente para meu content, pra ele ficar de uma coluna somente quando necessário, o normal é usar 760px, mas como o site não quebrou o design ao atingir 760px, a gente deixou daquele jeito, e colocamos a quebra somente nos 600px, ou seja, não é uma regra pra todo site. */
+@media (max-width: 600px) {
+  .content {
+    grid-template-columns: auto;
+  }
 }
 
 .col-wide {
@@ -303,7 +312,7 @@ Dá na mesma. Como referencia, olhe o grid-template-areas acima, da solucao 1, e
   align-self: end;
 }
 
-.item-2 {
+.imagem-2 {
   align-self: end;
 }
 
@@ -435,7 +444,10 @@ p {
 
   /* Anuncios 3 de 3 - Adiciono um espaçamento da imagem para o container anuncios + coloco uma distancia de 30px entre uma imagem e a outra +  */
   padding: 30px;
-  grid-gap: 30px; 
+  gap: 30px; 
+
+  /* Responsivo 6 de 10 - O repeat auto fit vai repetir quantas colunas forem possíveis, respeitando a regra seguinte, que no caso é, a coluna deve ter no minimo 150px, e se não tiver mais conteúdo pra mostrar, faço os elementos se expandirem pra ocupar o espaço da coluna. É diferente do auto fill. O auto fill, se eu tenho 2 imagens de 150px, e um espaço de 600px, ele vai deixar 300px em branco, e colocar 1 imagem em 150px e a outra em 150px, o auto fit vai colocar 2 colunas apenas, e cada uma vai ficar com 300px.*/
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
 }
 
 /* FOOTER */

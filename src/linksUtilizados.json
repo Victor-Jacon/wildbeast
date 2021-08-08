@@ -1,5 +1,5 @@
 {
-  "Etapa 1, até Etapa 3": [
+  "Projeto Origamid - Início ao Fim": [
     {
       "Como alterar a tag <head> em React.js - React Helmet": "https://www.npmjs.com/package/react-helmet",
       "Como usar o <Link ao invés de <a> - BrowserRouter": "https://reactrouter.com/web/api/BrowserRouter",
@@ -9,6 +9,13 @@
       "Como importar Google fonts no projeto React.js": "https://stackoverflow.com/questions/40769551/how-to-use-google-fonts-in-react-js",
       "Fonte Vollkorn, utilizada no projeto": "https://fonts.google.com/specimen/Vollkorn",   
       "Como documentar links usando JSON": "https://www.devmedia.com.br/o-que-e-json/23166"
+    }
+  ],
+  "Projeto React Início ao Fim" : [
+    {
+      "Como fazer o inspecionar elemento ficar na horizontal ao invés de ficar na vertical": "https://stackoverflow.com/questions/27772802/how-to-drag-re-position-inspect-element-tool-in-google-chrome",
+      "Como fazer a barra de rolagem horizontal parar de quebrar meu responsivo": "Descobri sozinho. Colocar width: 100% nas imagens do site, pois se a imagem for maior que o container css grid, ele vai quebrar seu layout. ",
+      "Como substituir uma div pelo react fragment": "Escreve <Fragmen e aperta tab para dar auto complete, e ele vai dar auto import lá em cima, depois basta substituir sua div pelo react fragment normal, assim: <Fragment />"
     }
   ]
 }
